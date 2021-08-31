@@ -1,8 +1,10 @@
 <template>
+<!-- 文章右侧分类列表 -->
     <ul class="right-list-container">
         <li v-for="(item, i) in list" 
         :key="i"
         >
+        <!-- 根据对象身上的是否激活状态来添加  calss 达到激活目的 -->
         <span :class="{active:item.isSelect}"
         @click="handleClick(item)"
         >
@@ -15,6 +17,7 @@
         >
             {{item.aside}}
         </span>
+            <!-- 将自身递归，查看是还有子组件没有渲染 -->
             <RightList :list="item.children" @select="handleClick"/>
         </li>
     </ul>
@@ -29,6 +32,7 @@ export default {
         }, 
     },
     methods:{
+        // 点击之后传出一个函数，交有其他组件处理
         handleClick(item){
             if(!item.isSelect){
                 this.$emit("select",item)

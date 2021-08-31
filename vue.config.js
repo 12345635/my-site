@@ -7,5 +7,7 @@ module.exports = {
       },
     },
   },
-  configureWebpack:require("./webpack.config"),
+  publicPath: process.env.NODE_ENV === "production" ? "../dist/" : "/",
+  // outputDir:""
+  configureWebpack: require("./webpack.config"),
 };

@@ -1,4 +1,5 @@
 <template>
+<!-- 渲染文章相关信息 -->
     <div id="bolg-dateil-container markdown-body">
         <h1>{{ blog.title }}</h1>
         <div class="aside">
@@ -8,6 +9,7 @@
             <a href="#blog-comment-container" 
             v-if="blog.commentNumber">
             评论：{{ blog.commentNumber}}</a>
+            <!-- 点击了文章的分类，就跳转到分类页面 -->
             <RouterLink v-if="blog.category"
                 :to="{
                 name: 'CategoryBlog',

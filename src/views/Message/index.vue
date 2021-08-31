@@ -25,8 +25,8 @@ export default {
             return this.data.rows.length >= this.data.total
         }
     },
-    created(){
-        this.setSelectDebounce = debounce(this.setSelect,20);
+    async created(){
+        this.setSelectDebounce = await debounce(this.setSelect,20);
         this.$bus.$on("mainScroll",this.setSelectDebounce);
     },
     destroyed(){
